@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+<meta itemprop="name" content="JeeAiTech">
+<meta itemprop="url" content="https://jeeaitech.com/">
+<link itemprop="logo" href="https://jeeaitech.com/images/Jeelogo.png">
+<meta itemprop="description" content="interactive quizzes across various subjects, allowing users to test their knowledge. After completing the quiz, users can view their score, along with correct answers and explanations, helping them learn and prepare for interviews">
+<title>General Nobel Prize Winners MCQ</title>
+<link rel="canonical" href="https://www.jeeaitech.com/" />
+<link rel="icon" type="image/png" href="https://jeeaitech.com/images/Jeelogo.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+	
+    <style>
+    /* General Styling */
+    body {
+        color: black;
+    }
+    
+    .carousel-item {
+        padding: 1rem 1rem 3rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(135deg, #f34079 40%, #fc894d);
+    }
+
+    .question {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+
+    .explanation {
+        font-size: 1em;
+        color: gray;
+    }
+
+    .answer-box {
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .answer-box:hover,
+    .selected {
+        background-color: #fff;
+        border-color: #fff;
+    }
+
+    .quiz-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    #results {
+        display: none;
+    }
+
+    .result-card {
+        margin-bottom: 15px;
+    }
+	
+	.carousel-control-prev, .carousel-control-next {
+		position: absolute;      
+		top: auto;               
+		bottom: 10px;            
+		z-index: 1;              
+	}
+
+
+	.carousel-control-prev-icon, .carousel-control-next-icon {
+		background-color: black; 
+		border-radius: 50%;      
+		padding: 10px;           
+	}
+
+    /* Gradient Button */
+    .btn-grad, 
+    .resultContent,
+    .tryagain {
+        margin: 10px;
+        padding: 15px 45px;
+        text-align: center;
+        transition: background-position 0.5s, color 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    .btn-grad {
+        background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
+    }
+
+    .btn-grad:hover {
+        background-position: right center;
+    }
+
+    .resultContent {
+        background-image: linear-gradient(to right, #50C9C3 0%, #96DEDA 51%, #50C9C3 100%);
+    }
+
+    .resultContent:hover {
+        background-position: right center;
+    }
+
+    .tryagain {
+        background-image: linear-gradient(to right, #f857a6 0%, #ff5858 51%, #f857a6 100%);
+    }
+
+    .tryagain:hover {
+        background-position: right center;
+    }
+
+    /* Center Try Again Button */
+    .d-flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+	
+	 /* Header and Footer Styling */
+        header, footer {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 0;
+        }
+
+        header .nav-link, footer .nav-link {
+            color: white;
+        }
+
+        footer .nav-link:hover {
+            color: #ffc107;
+        }
+		
+		 .section-title {
+            font-size: 1.25rem;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .link-list a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 1rem;
+        }
+        .link-list a:hover {
+            color: #0056b3;
+        }
+		
+		.link-list a {
+			text-decoration: none;
+			color: #FFFFFF;
+			font-size: 1rem;
+		}
+		.bottomlinkSections{
+			background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);padding: 2rem;
+		}
+</style>
+
+</head>
+<body>
+
+
+<!-- Header Section -->
+<header>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="https://jeeaitech.com">JeeAI Tech</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+					<li class="nav-item"><a class="nav-link" href="https://jeeaitech.com/GeneralMathsMCQ.html">Maths</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://jeeaitech.com/GeneralEnglishMCQ.html">English</a></li>
+                     <li class="nav-item"><a class="nav-link" href="https://jeeaitech.com/GeneralScienceMCQ.html">Science</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://jeeaitech.com/GeneralSocialMCQ.html">Social</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://jeeaitech.com/GeneralGKMCQ.html">GK</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="container quiz-container mt-5">
+    <p class="text-center">JeeAI Tech offers engaging MCQ quizzes on various subjects and topics, helping users learn, practice, and track their performance with detailed explanations. Enhance your knowledge, train for interviews, and achieve success</p>
+
+	
+
+    <!-- Quiz Carousel -->
+    <div id="quizCarousel" class="carousel slide" data-bs-ride="false">
+	
+		
+		 <!-- Display Current Question Index -->
+        <div id="currentQuesIndex" style="padding: 5px; font-size: 14px; border-radius: 5px;">
+            
+        </div>
+		
+        <div class="carousel-inner"><div class="carousel-item  active" data-question="q1" data-correct-answer="b" data-explanation="Albert Einstein was awarded the Nobel Prize in Physics in 1921 for his discovery of the photoelectric effect." data-question-text="Who won the Nobel Prize in Physics in 1921 for his discovery of the photoelectric effect?">
+                <div class="question">
+                    <p>Question 1: Who won the Nobel Prize in Physics in 1921 for his discovery of the photoelectric effect?</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q1" data-answer="a">
+                                A) Isaac Newton
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q1" data-answer="b">
+                                B) Albert Einstein
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q1" data-answer="c">
+                                C) Marie Curie
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q1" data-answer="d">
+                                D) Niels Bohr
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="carousel-item " data-question="q2" data-correct-answer="a" data-explanation="Marie Curie was awarded the Nobel Prize in Physics in 1903 for her work on radioactivity, and later in Chemistry in 1911 for the discovery of radium." data-question-text="Who was the first woman to win a Nobel Prize?">
+                <div class="question">
+                    <p>Question 2: Who was the first woman to win a Nobel Prize?</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q2" data-answer="a">
+                                A) Marie Curie
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q2" data-answer="b">
+                                B) Dorothy Hodgkin
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q2" data-answer="c">
+                                C) Rosalind Franklin
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q2" data-answer="d">
+                                D) Lise Meitner
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="carousel-item " data-question="q3" data-correct-answer="d" data-explanation="Malala Yousafzai was awarded the Nobel Peace Prize in 2014 for her struggle against the suppression of children and young people and for the right of all children to education." data-question-text="Who won the Nobel Peace Prize in 2014 for her efforts in advocating for girls' education?">
+                <div class="question">
+                    <p>Question 3: Who won the Nobel Peace Prize in 2014 for her efforts in advocating for girls' education?</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q3" data-answer="a">
+                                A) Aung San Suu Kyi
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q3" data-answer="b">
+                                B) Kailash Satyarthi
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q3" data-answer="c">
+                                C) Nelson Mandela
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q3" data-answer="d">
+                                D) Malala Yousafzai
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="carousel-item " data-question="q4" data-correct-answer="b" data-explanation="Wangari Maathai received the Nobel Peace Prize in 2004 for her contribution to sustainable development, democracy, and peace." data-question-text="Who became the first African woman to win the Nobel Peace Prize in 2004?">
+                <div class="question">
+                    <p>Question 4: Who became the first African woman to win the Nobel Peace Prize in 2004?</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q4" data-answer="a">
+                                A) Ellen Johnson Sirleaf
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q4" data-answer="b">
+                                B) Wangari Maathai
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q4" data-answer="c">
+                                C) Leymah Gbowee
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q4" data-answer="d">
+                                D) Desmond Tutu
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="carousel-item " data-question="q5" data-correct-answer="c" data-explanation="Barack Obama was awarded the Nobel Peace Prize in 2009 for his extraordinary efforts to strengthen international diplomacy and cooperation between peoples." data-question-text="Who won the Nobel Peace Prize in 2009 for his efforts in international diplomacy?">
+                <div class="question">
+                    <p>Question 5: Who won the Nobel Peace Prize in 2009 for his efforts in international diplomacy?</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q5" data-answer="a">
+                                A) George W. Bush
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q5" data-answer="b">
+                                B) Bill Clinton
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q5" data-answer="c">
+                                C) Barack Obama
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q5" data-answer="d">
+                                D) Henry Kissinger
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="carousel-item " data-question="q6" data-correct-answer="a" data-explanation="The Nobel Prize in Literature in 2016 was awarded to Bob Dylan for having created new poetic expressions within the great American song tradition." data-question-text="Who won the Nobel Prize in Literature in 2016?">
+                <div class="question">
+                    <p>Question 6: Who won the Nobel Prize in Literature in 2016?</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q6" data-answer="a">
+                                A) Bob Dylan
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q6" data-answer="b">
+                                B) J.K. Rowling
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q6" data-answer="c">
+                                C) Haruki Murakami
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q6" data-answer="d">
+                                D) Kazuo Ishiguro
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="carousel-item " data-question="q7" data-correct-answer="b" data-explanation="Albert Einstein was awarded the Nobel Prize in Physics in 1921 for his work on the photoelectric effect, which explained how light could be transformed into electricity." data-question-text="Which Nobel Prize did Albert Einstein win in 1921?">
+                <div class="question">
+                    <p>Question 7: Which Nobel Prize did Albert Einstein win in 1921?</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q7" data-answer="a">
+                                A) Nobel Prize in Chemistry
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q7" data-answer="b">
+                                B) Nobel Prize in Physics
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q7" data-answer="c">
+                                C) Nobel Peace Prize
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q7" data-answer="d">
+                                D) Nobel Prize in Medicine
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="carousel-item " data-question="q8" data-correct-answer="d" data-explanation="The Nobel Prize in Medicine for 2020 was awarded to Harvey J. Alter, Michael Houghton, and Charles M. Rice for the discovery of the Hepatitis C virus." data-question-text="Who won the Nobel Prize in Medicine in 2020 for their discovery of the Hepatitis C virus?">
+                <div class="question">
+                    <p>Question 8: Who won the Nobel Prize in Medicine in 2020 for their discovery of the Hepatitis C virus?</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q8" data-answer="a">
+                                A) Albert Calmette
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q8" data-answer="b">
+                                B) Marie Curie
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q8" data-answer="c">
+                                C) Max Planck
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q8" data-answer="d">
+                                D) Harvey J. Alter, Michael Houghton, and Charles M. Rice
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="carousel-item " data-question="q9" data-correct-answer="c" data-explanation="Ernest Hemingway was awarded the Nobel Prize in Literature in 1954 for his mastery of the art of narrative and his influence on contemporary style." data-question-text="Who won the Nobel Prize in Literature in 1954?">
+                <div class="question">
+                    <p>Question 9: Who won the Nobel Prize in Literature in 1954?</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q9" data-answer="a">
+                                A) F. Scott Fitzgerald
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q9" data-answer="b">
+                                B) William Faulkner
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q9" data-answer="c">
+                                C) Ernest Hemingway
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q9" data-answer="d">
+                                D) John Steinbeck
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="carousel-item " data-question="q10" data-correct-answer="a" data-explanation="The Nobel Prize in Physics in 2001 was awarded to Eric A. Cornell, Wolfgang Ketterle, and Carl E. Wieman for the creation of the Bose-Einstein condensate." data-question-text="Who won the Nobel Prize in Physics in 2001 for the creation of the Bose-Einstein condensate?">
+                <div class="question">
+                    <p>Question 10: Who won the Nobel Prize in Physics in 2001 for the creation of the Bose-Einstein condensate?</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q10" data-answer="a">
+                                A) Eric A. Cornell, Wolfgang Ketterle, and Carl E. Wieman
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q10" data-answer="b">
+                                B) Marie Curie, Henri Becquerel, and Pierre Curie
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q10" data-answer="c">
+                                C) Albert Einstein, Max Planck, and Niels Bohr
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q10" data-answer="d">
+                                D) Murray Gell-Mann
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="carousel-item " data-question="q11" data-correct-answer="d" data-explanation="Frédéric Joliot-Curie and Irène Joliot-Curie were jointly awarded the Nobel Prize in Chemistry in 1935 for their synthesis of new elements." data-question-text="Who won the Nobel Prize in Chemistry in 1935 for the synthesis of new elements?">
+                <div class="question">
+                    <p>Question 11: Who won the Nobel Prize in Chemistry in 1935 for the synthesis of new elements?</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q11" data-answer="a">
+                                A) Linus Pauling
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q11" data-answer="b">
+                                B) Marie Curie
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q11" data-answer="c">
+                                C) Gilbert N. Lewis
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q11" data-answer="d">
+                                D) Frédéric Joliot-Curie and Irène Joliot-Curie
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="carousel-item " data-question="q12" data-correct-answer="c" data-explanation="The Nobel Peace Prize in 1993 was awarded to Nelson Mandela and F.W. de Klerk for their work in peacefully ending apartheid in South Africa." data-question-text="Who won the Nobel Peace Prize in 1993 for their work in ending apartheid in South Africa?">
+                <div class="question">
+                    <p>Question 12: Who won the Nobel Peace Prize in 1993 for their work in ending apartheid in South Africa?</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q12" data-answer="a">
+                                A) Kofi Annan
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q12" data-answer="b">
+                                B) Aung San Suu Kyi
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q12" data-answer="c">
+                                C) Nelson Mandela and F.W. de Klerk
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q12" data-answer="d">
+                                D) Barack Obama
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="carousel-item " data-question="q13" data-correct-answer="a" data-explanation="The Nobel Prize in Economic Sciences 2019 was awarded to Abhijit Banerjee, Esther Duflo, and Michael Kremer for their experimental approach to poverty alleviation." data-question-text="Who won the Nobel Prize in Economic Sciences in 2019 for their experimental approach to poverty alleviation?">
+                <div class="question">
+                    <p>Question 13: Who won the Nobel Prize in Economic Sciences in 2019 for their experimental approach to poverty alleviation?</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q13" data-answer="a">
+                                A) Abhijit Banerjee, Esther Duflo, and Michael Kremer
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q13" data-answer="b">
+                                B) Paul Samuelson
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q13" data-answer="c">
+                                C) Amartya Sen
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q13" data-answer="d">
+                                D) Milton Friedman
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="carousel-item " data-question="q14" data-correct-answer="b" data-explanation="In 1979, Mother Teresa won the Nobel Peace Prize for her humanitarian work in helping the poor in Calcutta." data-question-text="Who won the Nobel Peace Prize in 1979 for her humanitarian work?">
+                <div class="question">
+                    <p>Question 14: Who won the Nobel Peace Prize in 1979 for her humanitarian work?</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q14" data-answer="a">
+                                A) Ellen Johnson Sirleaf
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q14" data-answer="b">
+                                B) Mother Teresa
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q14" data-answer="c">
+                                C) Kailash Satyarthi
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q14" data-answer="d">
+                                D) Desmond Tutu
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="carousel-item " data-question="q15" data-correct-answer="c" data-explanation="The Nobel Prize in Chemistry in 2011 was awarded to Dan Schechtman for the discovery of quasicrystals." data-question-text="Who won the Nobel Prize in Chemistry in 2011 for discovering quasicrystals?">
+                <div class="question">
+                    <p>Question 15: Who won the Nobel Prize in Chemistry in 2011 for discovering quasicrystals?</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q15" data-answer="a">
+                                A) Marie Curie
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q15" data-answer="b">
+                                B) Linus Pauling
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q15" data-answer="c">
+                                C) Dan Schechtman
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="answer-box" data-question="q15" data-answer="d">
+                                D) Robert Hooke
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div></div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#quizCarousel" data-bs-slide="prev" id="prevBtn" style="display: inline-block;">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#quizCarousel" data-bs-slide="next" id="nextBtn">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-center mt-3">
+        <button id="submitBtn" class="btn btn-primary btn-grad" style="display:none;">Submit</button>
+    </div>
+
+    <!-- Results Section -->
+    <div id="results" class="mt-1 resultContent">
+        <h3>Your Results</h3>
+        <p id="score"></p>
+		<div class="d-flex justify-content-center align-items-center mb-1">
+			<button id="tryAgainBtn" class="btn btn-secondary tryagain">Try Again</button>
+		</div>
+        <div id="answerResults"></div>
+        
+    </div>
+	
+	
+
+	</div>
+
+
+<div class="container mt-4 bottomlinkSections"><div class="container mt-4 bottomlinkSections">
+<div>
+    <h5 class="section-title">GK</h5>
+    <div class="row">
+        <div class="col-md-3 link-list">
+            <a href="https://jeeaitech.com/GeneralNobelPrizeWinnersMCQ.html">General Nobel Prize Winners MCQ</a><br>
+            <a href="https://jeeaitech.com/GeneralWondersoftheWorldMCQ.html">General Wonders of the World MCQ</a><br>
+        </div>
+        <div class="col-md-3 link-list">
+            <a href="https://jeeaitech.com/GeneralFamousLeadersinHistoryMCQ.html">General Famous Leaders in History MCQ</a><br>
+            <a href="https://jeeaitech.com/GeneralFamousHistoricalEventsMCQ.html">General Famous Historical Events MCQ</a><br>
+        </div>
+        <div class="col-md-3 link-list">
+            <a href="https://jeeaitech.com/GeneralGKMCQ.html">General GK MCQ</a><br>
+            <a href="https://jeeaitech.com/GeneralSpaceExplorationMCQ.html">General Space Exploration MCQ</a><br>
+        </div>
+        <div class="col-md-3 link-list">
+            <a href="https://jeeaitech.com/GeneralInventionsandDiscoveriesMCQ.html">General Inventions and Discoveries MCQ</a><br>
+            <a href="https://jeeaitech.com/GeneralWorldCapitalsMCQ.html">General World Capitals MCQ</a><br>
+        </div>
+    </div>
+</div>
+<div>
+    <h5 class="section-title">English</h5>
+    <div class="row">
+        <div class="col-md-3 link-list">
+            <a href="https://jeeaitech.com/GeneralTensesVerbsMCQ.html">General Tenses Verbs MCQ</a><br>
+            <a href="https://jeeaitech.com/GeneralEnglishMCQ.html">General English MCQ</a><br>
+        </div>
+        <div class="col-md-3 link-list">
+            <a href="https://jeeaitech.com/GeneralPunctuationMCQ.html">General Punctuation MCQ</a><br>
+            <a href="https://jeeaitech.com/GeneralIdiomsandPhrasalVerbsMCQ.html">General Idioms and Phrasal Verbs MCQ</a><br>
+        </div>
+        <div class="col-md-3 link-list">
+            <a href="https://jeeaitech.com/GeneralEnglishGrammarVerbsMCQ.html">General English Grammar Verbs MCQ</a><br>
+            <a href="https://jeeaitech.com/GeneralSentenceStructureMCQ.html">General Sentence Structure MCQ</a><br>
+        </div>
+        <div class="col-md-3 link-list">
+            <a href="https://jeeaitech.com/GeneralVocabularyBuildingMCQ.html">General Vocabulary Building MCQ</a><br>
+            <a href="https://jeeaitech.com/GeneralPartsofSpeechVerbsMCQ.html">General Parts of Speech Verbs MCQ</a><br>
+        </div>
+    </div>
+</div>
+<div>
+    <h5 class="section-title">Social</h5>
+    <div class="row">
+        <div class="col-md-3 link-list">
+            <a href="https://jeeaitech.com/GeneralSocialMovementsMCQ.html">General Social Movements MCQ</a><br>
+            <a href="https://jeeaitech.com/GeneralSocialStructureMCQ.html">General Social Structure MCQ</a><br>
+        </div>
+        <div class="col-md-3 link-list">
+            <a href="https://jeeaitech.com/GeneralSocialChangeMCQ.html">General Social Change MCQ</a><br>
+            <a href="https://jeeaitech.com/GeneralSocialNormsMCQ.html">General Social Norms MCQ</a><br>
+        </div>
+        <div class="col-md-3 link-list">
+            <a href="https://jeeaitech.com/GeneralFamilyDynamicsMCQ.html">General Family Dynamics MCQ</a><br>
+            <a href="https://jeeaitech.com/GeneralSocialMCQ.html">General Social MCQ</a><br>
+        </div>
+        <div class="col-md-3 link-list">
+            <a href="https://jeeaitech.com/GeneralCultureandSocietyMCQ.html">General Culture and Society MCQ</a><br>
+            <a href="https://jeeaitech.com/GeneralGlobalizationMCQ.html">General Globalization MCQ</a><br>
+        </div>
+    </div>
+</div>
+<div>
+    <h5 class="section-title">Maths</h5>
+    <div class="row">
+        <div class="col-md-3 link-list">
+            <a href="https://jeeaitech.com/GeneralGeometryMCQ.html">General Geometry MCQ</a><br>
+            <a href="https://jeeaitech.com/GeneralTrigonometryMCQ.html">General Trigonometry MCQ</a><br>
+        </div>
+        <div class="col-md-3 link-list">
+            <a href="https://jeeaitech.com/GeneralCalculusMCQ.html">General Calculus MCQ</a><br>
+            <a href="https://jeeaitech.com/GeneralAlgebraMCQ.html">General Algebra MCQ</a><br>
+        </div>
+        <div class="col-md-3 link-list">
+            <a href="https://jeeaitech.com/GeneralMathsMCQ.html">General Maths MCQ</a><br>
+            <a href="https://jeeaitech.com/GeneralStatisticsMCQ.html">General Statistics MCQ</a><br>
+        </div>
+        <div class="col-md-3 link-list">
+            <a href="https://jeeaitech.com/GeneralProbabilityMCQ.html">General Probability MCQ</a><br>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center mb-4">About JeeAI Tech</h2>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-6 mb-3">
+            <h4>Purpose of JeeAI Tech</h4>
+            <p>
+                JeeAI Tech aims to provide a platform for individuals to practice and enhance their knowledge through multiple-choice questions (MCQs). 
+                It covers a wide range of subjects and topics, making it suitable for students, employees, and professionals looking to improve their skills or prepare for interviews.
+            </p>
+        </div>
+        <div class="col-md-6 mb-3">
+            <h4>How JeeAI Tech Works</h4>
+            <p>
+                Each topic on JeeAI Tech contains 10-15 questions. Users can answer these questions one by one and submit their answers at the end. 
+                Once submitted, the system calculates the user's score, displays the percentage, and provides explanations for the correct answers.
+            </p>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-6 mb-3">
+            <h4>Features of JeeAI Tech</h4>
+            <ul>
+                <li>Wide range of topics across various subjects.</li>
+                <li>Detailed explanations for each question.</li>
+                <li>Score calculation with percentage results.</li>
+                <li>Option to review answered and skipped questions.</li>
+                <li>Responsive and user-friendly design.</li>
+            </ul>
+        </div>
+        <div class="col-md-6 mb-3">
+            <h4>Benefits for Users</h4>
+            <ul>
+                <li>Enhances learning through practice.</li>
+                <li>Prepares users for competitive exams and interviews.</li>
+                <li>Builds confidence by providing instant feedback.</li>
+                <li>Accessible to users of all levels: students, employees, and professionals.</li>
+                <li>Convenient and available on all devices.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h4 class="text-center mb-3">Why Choose JeeAI Tech?</h4>
+            <p class="text-center">
+                JeeAI Tech provides a unique platform for continuous learning and self-assessment. Whether you're preparing for exams, sharpening your skills, 
+                or just exploring new topics, our platform ensures a comprehensive learning experience. With a focus on usability, accuracy, and accessibility, 
+                JeeAI Tech is your go-to resource for knowledge enhancement.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer Section -->
+<footer>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="collapse navbar-collapse" id="footerNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="https://jeeaitech.com/TermsandConditions.html">Terms and Conditions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://jeeaitech.com/PrivacyPolicy.html">Privacy Policy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://jeeaitech.com/Disclaimer.html">Disclaimer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://jeeaitech.com/aboutus.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://jeeaitech.com/contactus.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</footer>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
+
+<script>
+
+let totalquestions = 0;
+
+let carousel = new bootstrap.Carousel(document.getElementById('quizCarousel'), {
+    keyboard: false, // Disable keyboard navigation
+    touch: false,    // Disable touch navigation
+});
+
+// Handle selection of answer
+document.querySelectorAll(".answer-box").forEach(box => {
+    box.addEventListener("click", function() {
+        const question = this.getAttribute("data-question");
+        const answer = this.getAttribute("data-answer");
+
+        // Remove previously selected answers
+        document.querySelectorAll(`.answer-box[data-question="${question}"]`).forEach(item => {
+            item.classList.remove("selected");
+        });
+
+        // Add selected class to the clicked box
+        this.classList.add("selected");
+
+        // Enable the next button
+        const nextButton = document.getElementById("nextBtn");
+        nextButton.disabled = false;
+
+        // Trigger next slide action, but check if it is the last slide
+        const activeSlide = document.querySelector(".carousel-item.active");
+        const totalSlides = document.querySelectorAll(".carousel-item").length;
+        
+        if (Array.from(activeSlide.parentNode.children).indexOf(activeSlide) < totalSlides - 1) {
+            carousel.next();
+        }
+    });
+});
+
+// Check if last slide is active and display submit button
+function checkIfLastSlide() {
+    const activeSlide = document.querySelector(".carousel-item.active");
+    const totalSlides = document.querySelectorAll(".carousel-item").length;
+	totalquestions = totalSlides;
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+	const questionDisplay = `Question ${Array.from(activeSlide.parentNode.children).indexOf(activeSlide) + 1} of ${totalSlides}`;
+	document.getElementById("currentQuesIndex").innerText = questionDisplay; 
+	
+    // Check if the active slide is the last one
+    if (Array.from(activeSlide.parentNode.children).indexOf(activeSlide) === totalSlides - 1) {
+        // Show Submit button and hide Next button on the last slide
+        document.getElementById("submitBtn").style.display = "inline-block";
+        nextBtn.style.display = "none";
+    } else {
+        // Show Next button and hide Submit button on other slides
+        document.getElementById("submitBtn").style.display = "none";
+        nextBtn.style.display = "inline-block";
+    }
+
+    // Disable the previous button on the first slide
+    if (Array.from(activeSlide.parentNode.children).indexOf(activeSlide) === 0) {
+        prevBtn.style.display = "none";
+    } else {
+        prevBtn.style.display = "inline-block";
+    }
+}
+
+// Call check on carousel change
+carousel._element.addEventListener('slid.bs.carousel', checkIfLastSlide);
+
+// Handle submission
+document.getElementById("submitBtn").addEventListener("click", function() {
+    let score = 0;
+    let answerResults = "";
+
+    // Loop through each question to check answers
+    document.querySelectorAll('.carousel-item').forEach(item => {
+        const question = item.getAttribute("data-question");
+        const correctAnswer = item.getAttribute("data-correct-answer");
+        const explanation = item.getAttribute("data-explanation");
+        const questionText = item.getAttribute("data-question-text");  // Get the full question text
+
+        // Get selected answer for the current question
+        const selectedAnswer = document.querySelector(`.answer-box.selected[data-question="${question}"]`);
+        
+        const selectedAnswerText = selectedAnswer ? selectedAnswer.innerText : "None";
+        const correctAnswerText = document.querySelector(`.answer-box[data-question="${question}"][data-answer="${correctAnswer}"]`).innerText;
+
+        // Generate result card for the current question
+        answerResults += `
+            <div class="result-card card">
+                <div class="card-body">
+                    <h5 class="card-title">Question: ${questionText}</h5> <!-- Display the full question text -->
+                    <p class="card-text"><strong>Your Answer:</strong> ${selectedAnswerText}</p>
+                    <p class="card-text"><strong>Correct Answer:</strong> ${correctAnswerText}</p>
+                    <p class="card-text explanation"><strong>Explanation:</strong> ${explanation}</p>
+                </div>
+            </div>
+        `;
+
+        // Increment score if the answer is correct
+        if (selectedAnswer && selectedAnswer.getAttribute("data-answer") === correctAnswer) {
+            score++;
+        }
+    });
+
+    // Calculate percentage
+	console.log(score,totalquestions);
+    const percentage = (score / totalquestions) * 100;
+
+    // Display results
+    document.getElementById("score").textContent = `You scored ${score} out of ${totalquestions} (${percentage.toFixed(2)}%)`;
+    document.getElementById("answerResults").innerHTML = answerResults;
+    document.getElementById("results").style.display = "block";
+    document.getElementById("submitBtn").style.display = "none";
+	document.getElementById("prevBtn").style.display = "none";
+	document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("currentQuesIndex").style.display = "none";
+	const elements = document.querySelectorAll(".currentQuesIndex");
+		elements.forEach(element => {
+			element.style.display = "none"; // Hide each element
+		});
+    // Hide all carousel slides after submission
+    document.querySelectorAll('.carousel-item').forEach(item => {
+        item.style.display = 'none';
+    });
+});
+
+
+// Handle "Try Again" button
+document.getElementById("tryAgainBtn").addEventListener("click", function() {
+    location.reload(); // Reload the page to reset the quiz
+});
+
+// Initial check if last slide
+checkIfLastSlide();
+
+</script>
+
+</body>
+</html>
