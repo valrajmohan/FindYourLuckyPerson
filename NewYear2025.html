@@ -130,11 +130,8 @@
     </style>
 </head>
 <body>
-    <div class="text-container">
-        <h3 id="greeting" class="animate-charcter">Wishing you a very happy new year 2025</h3>
-    </div>
-   
-   <script type="text/javascript">
+
+<script type="text/javascript">
 	atOptions = {
 		'key' : 'de8ccfe621394e7a4e9b8051d910ff5f',
 		'format' : 'iframe',
@@ -143,6 +140,11 @@
 		'params' : {}
 	};
 </script>
+
+<div class="text-container">
+	<h3 id="greeting" class="animate-charcter">Wishing you a very happy new year 2025</h3>
+</div>
+
 <script type="text/javascript" src="//www.highperformanceformat.com/de8ccfe621394e7a4e9b8051d910ff5f/invoke.js"></script>
 
     <div class="image-container">
@@ -150,21 +152,33 @@
     </div>
 
 	<div class="mb-3 d-flex" style="margin-top: 15px;">
-        <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
-        <button class="btn btn-primary" onclick="generateURL()">Share</button>
+        <input type="text" id="nameInput" class="form-control" placeholder="Enter your name and share to your friends">
+		<button class="btn btn-primary" onclick="openShareModal()">Share</button>
     </div>
 
-    <div id="social-media-share" style="display: none; margin-top: 20px;">
-        <h4>Share on:</h4>
-        <div>
-            <a href="#" id="whatsapp" class="btn btn-success" onclick="shareOnWhatsApp()">WhatsApp</a>
-            <a href="#" id="facebook" class="btn btn-primary" onclick="shareOnFacebook()">Facebook</a>
-            <a href="#" id="twitter" class="btn btn-info" onclick="shareOnTwitter()">Twitter</a>
-            <a href="#" id="instagram" class="btn btn-danger" onclick="shareOnInstagram()">Instagram</a>
-            <a href="#" id="messenger" class="btn btn-dark" onclick="shareOnMessenger()">Messenger</a>
-            <!-- Add more social media buttons as needed -->
+    <!-- Modal for Social Media Links -->
+<div class="modal fade" id="socialMediaModal" tabindex="-1" aria-labelledby="socialMediaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="socialMediaModalLabel">Share on Social Media</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="social-links" class="text-center">
+                    <a href="#" id="whatsapp" class="btn btn-success mb-2" onclick="shareOnWhatsApp()">WhatsApp</a>
+                    <a href="#" id="facebook" class="btn btn-primary mb-2" onclick="shareOnFacebook()">Facebook</a>
+                    <a href="#" id="twitter" class="btn btn-info mb-2" onclick="shareOnTwitter()">Twitter</a>
+                    <a href="#" id="instagram" class="btn btn-danger mb-2" onclick="shareOnInstagram()">Instagram</a>
+                    <a href="#" id="messenger" class="btn btn-dark mb-2" onclick="shareOnMessenger()">Messenger</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
+</div>
 	
 	<script type="text/javascript">
 	atOptions = {
@@ -289,6 +303,24 @@
         }
     }
 
+	function openShareModal() {
+        const name = document.getElementById("nameInput").value;
+        if (name) {
+            const url = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(name)}`;
+            // Add dynamic links to buttons if needed
+            document.getElementById("whatsapp").href = `https://wa.me/?text=Check this out: ${url}`;
+            document.getElementById("facebook").href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            document.getElementById("twitter").href = `https://twitter.com/intent/tweet?text=Check this out: ${url}`;
+            document.getElementById("instagram").href = `#`; // Instagram sharing is manual.
+            document.getElementById("messenger").href = `https://www.facebook.com/dialog/send?link=${url}`;
+
+            const modal = new bootstrap.Modal(document.getElementById('socialMediaModal'));
+            modal.show();
+        } else {
+            alert("Please enter your name!");
+        }
+    }
+	
     // Run on page load
     personalizeGreeting();
 </script>
