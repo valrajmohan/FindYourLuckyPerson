@@ -1,277 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta itemprop="name" content="JeeAiTech">
-    <meta itemprop="url" content="https://jeeaitech.com/">
-    <link itemprop="logo" href="https://jeeaitech.com/images/Jeelogo.png">
-    <meta itemprop="description" content="Happy New Year 2025">
-    <title>Happy New Year 2025</title>
-    <meta name="google-site-verification" content="2D1c5NOmHKsSXdk5VmhxcE9o1zCOlDjvHJyIe8GzkOw" />
-    <link rel="canonical" href="https://www.jeeaitech.com/" />
-    <link rel="icon" type="image/png" href="https://jeeaitech.com/images/Jeelogo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+    const quotes = [
+        "May your year be filled with endless joy, new opportunities, and unforgettable memories. Happy New Year! 2025",
+        "Wishing you a year of health, happiness, and success in everything you do. Cheers to 2025!",
+        "May the new year bring brighter days, bigger dreams, and beautiful beginnings. Happy New Year! 2025",
+        "Here’s to a year of exploring, growing, and living life to the fullest. Have an amazing New Year! 2025",
+        "May your heart be light, your troubles few, and your blessings abundant in 2025. Happy New Year! ",
+        "May the New Year bless you with health, happiness, and prosperity. Happy 2025!",
+        "Wishing you a year filled with new adventures and great memories. Cheers to 2025!",
+        "Here’s to a fresh start and new beginnings! Happy New Year Cheers to 2025!.",
+        "Wishing you a year of good luck and great success. Happy 2025!",
+        "May your heart be filled with joy and your life with happiness in the New Year!"
+    ];
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    const AdvanceQuotes = [
+        "May your year be filled with endless joy, new opportunities, and unforgettable memories. Advance Happy New Year! 2025",
+        "Wishing you a year of health, happiness, and success in everything you do. Advance Cheers to 2025!",
+        "May the new year bring brighter days, bigger dreams, and beautiful beginnings. Advance Happy New Year! 2025",
+        "Here’s to a year of exploring, growing, and living life to the fullest. Have an amazing New Year! 2025",
+        "May your heart be light, your troubles few, and your blessings abundant in 2025.Advance Happy New Year! ",
+        "May the New Year bless you with health, happiness, and prosperity.Advance Happy New Year 2025!",
+        "Wishing you a year filled with new adventures and great memories. Advance Cheers to 2025!",
+        "Here’s to a fresh start and new beginnings! Advance Happy New Year Cheers to 2025!.",
+        "Wishing you a year of good luck and great success. Advance Happy New Year 2025!",
+        "May your heart be filled with joy and your life with happiness in the Advance New Year!"
+    ];
 
-    <style>
-        body {
-           display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			align-items: center;
-			min-height: 100vh; /* Ensure full height of the viewport */
-			margin: 0;
-			background-color: #f8f9fa;
-			background-image: url('/images/happy-new-year2021version.jpg'); /* Path to your GIF */
-			background-repeat: no-repeat; /* Prevent the image from repeating */
-			background-size: cover; /* Ensure the background image covers the full viewport */
-        }
-        .text-container {
-            text-align: center;
-            margin-top: 2vw;
-			margin-bottom: 0vw;
-        }
-        .image-container {
-            text-align: center;
-            margin-bottom: -1vw;
-        }
-        .image-container img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-        }
-        .animate-charcter {
-            text-transform: uppercase;
-            background-image: linear-gradient(
-                -225deg,
-                #231557 0%,
-                #44107a 29%,
-                #ff1361 67%,
-                #fff800 100%
-            );
-            background-size: auto auto;
-            background-clip: border-box;
-            background-size: 100% auto;
-            color: #fff;
-            background-clip: text;
-            text-fill-color: transparent;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: textclip 2s linear infinite;
-            display: inline-block;
-            font-size: 2vw;
-        }
+    // Get the current year
+    const currentYear = new Date().getFullYear();
 
-        @media (max-width: 768px) {
-            .animate-charcter {
-                font-size: 5vw;
-            }
-        }
+    // Choose the quotes array based on the current year
+    let currentQuotes = currentYear === 2024 ? AdvanceQuotes : quotes;
 
-        @media (max-width: 480px) {
-            .animate-charcter {
-                font-size: 6vw;
-            }
-        }
+    // Change images periodically
+    const images = [
+        "/images/new-year-2025.gif",
+        "/images/happy-new-year-new-year.gif",
+        "/images/happy-new.gif"
+    ];
+    let currentIndex = 0;
 
-        @keyframes textclip {
-            to {
-                background-position: 100% center;
-            }
-        }
-		
-		/* Flex container for sharing options */
-        .share-container {
-            display: flex;
-            gap: 10px; /* Space between buttons */
-            justify-content: center;
-            margin-top: 15px;
-        }
+    function changeImage() {
+        const imageElement = document.getElementById("center-image");
+        currentIndex = (currentIndex + 1) % images.length;
+        imageElement.src = images[currentIndex];
+    }
+    setInterval(changeImage, 5000);
 
-        .share-container a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-            font-size: 1.1rem;
+    // Generate a URL with the entered name
+    function generateURL() {
+        const name = document.getElementById("nameInput").value;
+        if (name) {
+            const url = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(name)}`;
+            document.getElementById("social-media-share").style.display = "block"; // Show share options
+        } else {
+            alert("Please enter your name!");
         }
+    }
 
-        .share-container a:hover {
-            background-color: #0056b3;
-        }
+    // Social Media Sharing Functions
+    function shareOnWhatsApp() {
+        const name = document.getElementById("nameInput").value;
+        const url = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(name)}`;
+        window.open(`https://wa.me/?text=${encodeURIComponent(url)}`, '_blank');
+    }
 
-        .mb-3 {
-            margin-top: 15px;
-        }
-		
-		/* Style for iframe */
-        .iframe-container {
-            width: 100%;
-            height: 500px;
-            overflow: hidden;
-            position: relative;
-            padding-bottom: 56.25%; /* Aspect Ratio 16:9 */
-            background: #f8f9fa;
-        }
+    function shareOnFacebook() {
+        const name = document.getElementById("nameInput").value;
+        const url = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(name)}`;
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+    }
 
-        .iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+    function shareOnTwitter() {
+        const name = document.getElementById("nameInput").value;
+        const url = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(name)}`;
+        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`, '_blank');
+    }
+
+    function shareOnInstagram() {
+        alert("Instagram sharing is not supported directly through a URL. Please share manually.");
+    }
+
+    function shareOnMessenger() {
+        const name = document.getElementById("nameInput").value;
+        const url = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(name)}`;
+        window.open(`https://www.messenger.com/share?link=${encodeURIComponent(url)}`, '_blank');
+    }
+
+    // Get name from URL and display personalized message
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    function personalizeGreeting() {
+        const name = getQueryParam("name");
+        if (name) {
+            const randomQuote = currentQuotes[Math.floor(Math.random() * currentQuotes.length)];
+            const greetingElement = document.getElementById("greeting");
+            greetingElement.innerHTML = `${name},<br>${randomQuote}`;
         }
-    </style>
-</head>
-<body>
-    <div class="text-container">
-        <h3 id="greeting" class="animate-charcter">Wishing you a very happy new year 2025</h3>
-    </div>
-   
-   <script type="text/javascript">
-	atOptions = {
-		'key' : 'de8ccfe621394e7a4e9b8051d910ff5f',
-		'format' : 'iframe',
-		'height' : 50,
-		'width' : 320,
-		'params' : {}
-	};
+    }
+
+    // Run on page load
+    personalizeGreeting();
 </script>
-<script type="text/javascript" src="//www.highperformanceformat.com/de8ccfe621394e7a4e9b8051d910ff5f/invoke.js"></script>
-
-    <div class="image-container">
-        <img id="center-image" src="/images/happy-new.gif" alt="Happy New Year">
-    </div>
-
-	<div class="mb-3 d-flex" style="margin-top: 15px;">
-        <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
-        <button class="btn btn-primary" onclick="generateURL()">Share</button>
-    </div>
-
-    <div id="social-media-share" style="display: none; margin-top: 20px;">
-        <h4>Share on:</h4>
-        <div>
-            <a href="#" id="whatsapp" class="btn btn-success" onclick="shareOnWhatsApp()">WhatsApp</a>
-            <a href="#" id="facebook" class="btn btn-primary" onclick="shareOnFacebook()">Facebook</a>
-            <a href="#" id="twitter" class="btn btn-info" onclick="shareOnTwitter()">Twitter</a>
-            <a href="#" id="instagram" class="btn btn-danger" onclick="shareOnInstagram()">Instagram</a>
-            <a href="#" id="messenger" class="btn btn-dark" onclick="shareOnMessenger()">Messenger</a>
-            <!-- Add more social media buttons as needed -->
-        </div>
-    </div>
-	
-	<script type="text/javascript">
-	atOptions = {
-		'key' : '2411ad8d1080b8ea7753039d27fbac66',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/2411ad8d1080b8ea7753039d27fbac66/invoke.js"></script>
-
-	<!-- Add iframe for the responsive content -->
-    <div class="iframe-container">
-        <iframe src="https://www.profitablecpmrate.com/z9k1x86j0r?key=bd0d455517c48ea1a09ab2f536d69abf" frameborder="0" allowfullscreen></iframe>
-    </div>
-
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
-
-    <script>
-        const quotes = [
-            "May your year be filled with endless joy, new opportunities, and unforgettable memories. Happy New Year! 2025",
-            "Wishing you a year of health, happiness, and success in everything you do. Cheers to 2025!",
-            "May the new year bring brighter days, bigger dreams, and beautiful beginnings. Happy New Year! 2025",
-            "Here’s to a year of exploring, growing, and living life to the fullest. Have an amazing New Year! 2025",
-            "May your heart be light, your troubles few, and your blessings abundant in 2025. Happy New Year! ",
-            "May the New Year bless you with health, happiness, and prosperity. Happy 2025!",
-            "Wishing you a year filled with new adventures and great memories. Cheers to 2025!",
-            "Here’s to a fresh start and new beginnings! Happy New Year Cheers to 2025!.",
-            "Wishing you a year of good luck and great success. Happy 2025!",
-            "May your heart be filled with joy and your life with happiness in the New Year!"
-        ];
-
-        // Change images periodically
-        const images = [
-            "/images/new-year-2025.gif",
-            "/images/happy-new-year-new-year.gif",
-			"/images/happy-new.gif"
-        ];
-        let currentIndex = 0;
-
-        function changeImage() {
-            const imageElement = document.getElementById("center-image");
-            currentIndex = (currentIndex + 1) % images.length;
-            imageElement.src = images[currentIndex];
-        }
-        setInterval(changeImage, 5000);
-
-        // Generate a URL with the entered name
-        function generateURL() {
-            const name = document.getElementById("nameInput").value;
-            if (name) {
-                const url = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(name)}`;
-                document.getElementById("social-media-share").style.display = "block"; // Show share options
-            } else {
-                alert("Please enter your name!");
-            }
-        }
-
-        // Social Media Sharing Functions
-        function shareOnWhatsApp() {
-            const name = document.getElementById("nameInput").value;
-            const url = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(name)}`;
-            window.open(`https://wa.me/?text=${encodeURIComponent(url)}`, '_blank');
-        }
-
-        function shareOnFacebook() {
-            const name = document.getElementById("nameInput").value;
-            const url = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(name)}`;
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
-        }
-
-        function shareOnTwitter() {
-            const name = document.getElementById("nameInput").value;
-            const url = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(name)}`;
-            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`, '_blank');
-        }
-
-        function shareOnInstagram() {
-            alert("Instagram sharing is not supported directly through a URL. Please share manually.");
-        }
-
-        function shareOnMessenger() {
-            const name = document.getElementById("nameInput").value;
-            const url = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(name)}`;
-            window.open(`https://www.messenger.com/share?link=${encodeURIComponent(url)}`, '_blank');
-        }
-
-        // Get name from URL and display personalized message
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
-        function personalizeGreeting() {
-            const name = getQueryParam("name");
-            if (name) {
-                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-                const greetingElement = document.getElementById("greeting");
-                greetingElement.innerHTML = `${name},<br>${randomQuote}`;
-            }
-        }
-
-        // Run on page load
-        personalizeGreeting();
-    </script>
-</body>
-</html>
