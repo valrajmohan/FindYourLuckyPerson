@@ -301,6 +301,7 @@ const AdvanceQuotes = [
             const randomQuote = currentQuotes[Math.floor(Math.random() * currentQuotes.length)];
             const greetingElement = document.getElementById("greeting");
             greetingElement.innerHTML = `${name},<br>${randomQuote}`;
+			document.title = `${name}'s Happy New Year 2025`;
         }
     }
 
