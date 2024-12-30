@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta itemprop="name" content="JeeAiTech">
+    <meta itemprop="url" content="https://jeeaitech.com/">
+    <link itemprop="logo" href="https://jeeaitech.com/images/Jeelogo.png">
+    <meta itemprop="description" content="Happy New Year 2025">
+    <title>Happy New Year 2025</title>
+    <meta name="google-site-verification" content="2D1c5NOmHKsSXdk5VmhxcE9o1zCOlDjvHJyIe8GzkOw" />
+    <link rel="canonical" href="https://www.jeeaitech.com/" />
+    <link rel="icon" type="image/png" href="https://jeeaitech.com/images/Jeelogo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+           display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			min-height: 100vh; /* Ensure full height of the viewport */
+			margin: 0;
+			background-color: #f8f9fa;
+			background-image: url('/images/happy-new-year2021version.jpg'); /* Path to your GIF */
+			background-repeat: no-repeat; /* Prevent the image from repeating */
+			background-size: cover; /* Ensure the background image covers the full viewport */
+        }
+        .text-container {
+            text-align: center;
+            margin-top: 2vw;
+			margin-bottom: 2vw;
+        }
+        .image-container {
+            text-align: center;
+            margin-bottom: -1vw;
+        }
+        .image-container img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        .animate-charcter {
+            text-transform: uppercase;
+            background-image: linear-gradient(
+                -225deg,
+                #231557 0%,
+                #44107a 29%,
+                #ff1361 67%,
+                #fff800 100%
+            );
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 100% auto;
+            color: #fff;
+            background-clip: text;
+            text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 2s linear infinite;
+            display: inline-block;
+            font-size: 2vw;
+        }
+
+        @media (max-width: 768px) {
+            .animate-charcter {
+                font-size: 5vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .animate-charcter {
+                font-size: 6vw;
+            }
+        }
+
+        @keyframes textclip {
+            to {
+                background-position: 100% center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <h3 id="greeting" class="animate-charcter">Wishing you a very happy new year 2025</h3>
+    </div>
+   
+    <div class="image-container">
+        <img id="center-image" src="/images/happy-new.gif" alt="Happy New Year">
+    </div>
+
+	<div class="mb-3 d-flex" style="margin-top: 15px;">
+    <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
+    <button class="btn btn-primary" onclick="generateURL()">Share</button>
+</div>
+
+	
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        const quotes = [
+            "May your dreams come true this year!",
+            "Wishing you success and happiness.",
+            "Cheers to new beginnings!",
+            "Let this year be your best one yet!",
+            "Embrace the opportunities ahead.",
+            "A year of joy and laughter awaits you.",
+            "Keep shining bright!",
+            "This year is your time to shine.",
+            "Happiness and good health to you.",
+            "Make the most of every moment!"
+        ];
+
+        // Change images periodically
+        const images = [
+            "/images/happy-new.gif",
+            "/images/new-year-2025.gif",
+            "/images/happy-new-year-new-year.gif"
+        ];
+        let currentIndex = 0;
+
+        function changeImage() {
+            const imageElement = document.getElementById("center-image");
+            currentIndex = (currentIndex + 1) % images.length;
+            imageElement.src = images[currentIndex];
+        }
+        setInterval(changeImage, 5000);
+
+        // Generate a URL with the entered name
+        function generateURL() {
+            const name = document.getElementById("nameInput").value;
+            if (name) {
+                const url = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(name)}`;
+                alert(`Share this URL: ${url}`);
+            } else {
+                alert("Please enter your name!");
+            }
+        }
+
+        // Get name from URL and display personalized message
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function personalizeGreeting() {
+            const name = getQueryParam("name");
+            if (name) {
+                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+                const greetingElement = document.getElementById("greeting");
+                greetingElement.innerHTML = `${name},<br>${randomQuote}`;
+            }
+        }
+
+        // Run on page load
+        personalizeGreeting();
+    </script>
+</body>
+</html>
