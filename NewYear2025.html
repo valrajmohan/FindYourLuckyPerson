@@ -93,11 +93,22 @@
     </div>
 
 	<div class="mb-3 d-flex" style="margin-top: 15px;">
-    <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
-    <button class="btn btn-primary" onclick="generateURL()">Share</button>
-</div>
+        <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
+        <button class="btn btn-primary" onclick="generateURL()">Share</button>
+    </div>
 
-	
+    <div id="social-media-share" style="display: none; margin-top: 20px;">
+        <h4>Share on:</h4>
+        <div>
+            <a href="#" id="whatsapp" class="btn btn-success" onclick="shareOnWhatsApp()">WhatsApp</a>
+            <a href="#" id="facebook" class="btn btn-primary" onclick="shareOnFacebook()">Facebook</a>
+            <a href="#" id="twitter" class="btn btn-info" onclick="shareOnTwitter()">Twitter</a>
+            <a href="#" id="instagram" class="btn btn-danger" onclick="shareOnInstagram()">Instagram</a>
+            <a href="#" id="messenger" class="btn btn-dark" onclick="shareOnMessenger()">Messenger</a>
+            <!-- Add more social media buttons as needed -->
+        </div>
+    </div>
+
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
@@ -137,9 +148,39 @@
             if (name) {
                 const url = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(name)}`;
                 alert(`Share this URL: ${url}`);
+                document.getElementById("social-media-share").style.display = "block"; // Show share options
             } else {
                 alert("Please enter your name!");
             }
+        }
+
+        // Social Media Sharing Functions
+        function shareOnWhatsApp() {
+            const name = document.getElementById("nameInput").value;
+            const url = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(name)}`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareOnFacebook() {
+            const name = document.getElementById("nameInput").value;
+            const url = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(name)}`;
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareOnTwitter() {
+            const name = document.getElementById("nameInput").value;
+            const url = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(name)}`;
+            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareOnInstagram() {
+            alert("Instagram sharing is not supported directly through a URL. Please share manually.");
+        }
+
+        function shareOnMessenger() {
+            const name = document.getElementById("nameInput").value;
+            const url = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(name)}`;
+            window.open(`https://www.messenger.com/share?link=${encodeURIComponent(url)}`, '_blank');
         }
 
         // Get name from URL and display personalized message
